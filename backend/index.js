@@ -33,7 +33,7 @@ app.post('/read', (req,res)=>{
     const child_id = req.body.child_id
 
     db.query("SELECT * FROM wishlist WHERE child_id = ?", 
-    [child_id],
+    child_id,
     (err,result)=>{
             err ? console.log(err) : console.log("success"); res.send(result)
         }
