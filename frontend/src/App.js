@@ -12,6 +12,9 @@ function App() {
   const [item_name, setItem_Name] = useState("");
   const [price, setPrice] = useState("");
 
+  // Hook for Update Section
+  const [itemUpdated, setItemUpdated] = useState("initialState") 
+
   // Hook for Login Section
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -26,6 +29,7 @@ function App() {
   const [showLoginSection, setShowLoginSection] = useState(true);
   const [showWishlistSection, setShowWishlistSection] = useState(false);
   const [showAddWishlistSection, setShowAddWishlistSection] = useState(false)
+  const [showUpdateWishlistSection, setShowUpdateWishlistSection] = useState(false)
 
   // login 
   const login = () => {
@@ -49,6 +53,7 @@ function App() {
   const showAddWishlist = () => {
     setShowAddWishlistSection(true);
     setShowWishlistSection(false);
+    setShowUpdateWishlistSection(false);
   }
 
   const addWishlist = () => {
@@ -70,7 +75,15 @@ function App() {
       setWishlist(response.data);
       setShowWishlistSection(true);
       setShowAddWishlistSection(false);
+      setShowUpdateWishlistSection(false);
     })
+  }
+
+  // update
+  const showUpdateWishlist = () => {
+    setShowAddWishlistSection(false);
+    setShowWishlistSection(false);
+    setShowUpdateWishlistSection(true);
   }
 
 
@@ -104,6 +117,7 @@ function App() {
                 <th>Item Name</th>
                 <th>Item Price</th>
                 <th>Your Progress</th>
+                <th>Delete</th>
               </tr>
               {wishlist.map((value,key) => {
               return (
@@ -113,13 +127,16 @@ function App() {
                   <td>{value.item_name}</td>
                   <td>S$ {value.price}</td>
                   <td>{((value.goal / value.price) * 100).toFixed(2)}% progress</td>
+                  <td><button>Delete</button></td>
               </tr>  
               )
-            })}
+              })}
             </table>
           </div>
           <br/>
           <button onClick={showAddWishlist}>Add Wishlist</button>
+          <br/>
+          <button onClick={showUpdateWishlist}>Update Wishlist</button>
 
         </div>
         :
@@ -145,6 +162,38 @@ function App() {
           <input type="text" placeholder="item name" onChange={(e)=>{setItem_Name(e.target.value)}}></input>
           <input type="number" placeholder="price" onChange={(e)=>{setPrice(e.target.value)}}></input>
           <button onClick={addWishlist}>Add Wishlist</button>
+        </div>
+        :
+        null
+      }
+      {
+        showUpdateWishlistSection?
+        // HTML for Add Wishlist Section
+        <div className="App">
+          <button onClick={showWishlist}>Back</button>
+          <h3>Update Wishlist</h3>
+          <select type="text" name="type" onChange={(e)=>{setItemUpdated(e.target.value)}}>
+            <option value="">Which Item to Update ?</option>
+            {wishlist.map((value,key) => {
+              return (
+                <option value={value.item_name}>{value.item_name}</option>
+              )
+              })}
+          </select>
+          <select type="text" name="type" onChange={(e)=>{setType(e.target.value)}}>
+            <option value="">What is your wishlist type ?</option>
+            <option value="need">need</option>
+            <option value="want">want</option>
+          </select>
+          <select type="text" name="category" onChange={(e)=>{setCategory(e.target.value)}}>
+            <option value="">What is your category type ?</option>
+            <option value="toys">toys</option>
+            <option value="foods">foods</option>
+            <option value="books">books</option>
+          </select>
+          <input type="text" placeholder="item name" onChange={(e)=>{setItem_Name(e.target.value)}}></input>
+          <input type="number" placeholder="price" onChange={(e)=>{setPrice(e.target.value)}}></input>
+          <button>Update Wishlist</button>
         </div>
         :
         null
