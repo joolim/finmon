@@ -15,7 +15,11 @@ function App() {
   const [price, setPrice] = useState("");
 
   // Hook for Update Section
-  const [itemUpdated, setItemUpdated] = useState("initialState") 
+  const [itemUpdated, setItemUpdated] = useState("initialState")
+  const [newType, setNewType] = useState("");
+  const [newCategory, setNewCategory] = useState("");
+  const [newItem_name, setNewItem_Name] = useState("");
+  const [newPrice, setNewPrice] = useState(""); 
 
   // Hook for Login Section
   const [username, setUsername] = useState("");
@@ -85,6 +89,17 @@ function App() {
     setShowAddWishlistSection(false);
     setShowWishlistSection(false);
     setShowUpdateWishlistSection(true);
+  }
+
+  const updateWishlist = () => {
+    Axios.put("http://localhost:3001/update", {
+      id: itemUpdated,
+      type: newType,
+      category: newCategory,
+      item_name: newItem_name,
+      price: newPrice,
+
+    })
   }
 
 
@@ -177,24 +192,24 @@ function App() {
             <option value="">Which Item to Update ?</option>
             {wishlist.map((value,key) => {
               return (
-                <option value={value.item_name}>{value.item_name}</option>
+                <option value={value.id}>{value.item_name}</option>
               )
               })}
           </select>
-          <select type="text" name="type" onChange={(e)=>{setType(e.target.value)}}>
-            <option value="">What is your wishlist type ?</option>
+          <select type="text" name="type" onChange={(e)=>{setNewType(e.target.value)}}>
+            <option value="">Change your wishlist type to ?</option>
             <option value="need">need</option>
             <option value="want">want</option>
           </select>
-          <select type="text" name="category" onChange={(e)=>{setCategory(e.target.value)}}>
-            <option value="">What is your category type ?</option>
+          <select type="text" name="category" onChange={(e)=>{setNewCategory(e.target.value)}}>
+            <option value="">Change your category to ?</option>
             <option value="toys">toys</option>
             <option value="foods">foods</option>
             <option value="books">books</option>
           </select>
-          <input type="text" placeholder="item name" onChange={(e)=>{setItem_Name(e.target.value)}}></input>
-          <input type="number" placeholder="price" onChange={(e)=>{setPrice(e.target.value)}}></input>
-          <button>Update Wishlist</button>
+          <input type="text" placeholder="new item name" onChange={(e)=>{setNewItem_Name(e.target.value)}}></input>
+          <input type="number" placeholder="new item price" onChange={(e)=>{setNewPrice(e.target.value)}}></input>
+          <button onClick={updateWishlist}>Update Wishlist</button>
         </div>
         :
         null
