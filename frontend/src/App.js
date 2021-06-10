@@ -5,18 +5,27 @@ import Axios from 'axios';
 function App() {
 
   // Hook (something like a set of variable and function to change the variable)
+
+  // Hook for Create Section (a.k.a Add Wishlist)
+  const [type, setType] = useState("");
+  const [category, setCategory] = useState("");
+  const [item_name, setItem_Name] = useState("");
+  const [price, setPrice] = useState("");
+
+  // Hook for Login Section
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const [loginStatus, setLoginStatus] = useState("");
 
+  // Hook for multipupose
   const [wishlist, setWishlist] = useState([]);
-
   const [child_id, setChild_id] = useState("")
 
   // Hook for section
   const [showLoginSection, setShowLoginSection] = useState(true);
   const [showWishlistSection, setShowWishlistSection] = useState(false);
+  const [showAddWishlistSection, setShowAddWishlistSection] = useState(false)
 
   // login 
   const login = () => {
@@ -35,21 +44,42 @@ function App() {
     })
   }
 
+
+  // create
+  const showAddWishlist = () => {
+    setShowAddWishlistSection(true);
+    setShowWishlistSection(false);
+  }
+
+  const addWishlist = () => {
+    Axios.post("http://localhost:3001/create",{
+      child_id: child_id,
+      type: type,
+      category: category,
+      item_name: item_name,
+      price: price,
+      goal: 0,
+    })
+  }
+
   // read
   const showWishlist = (id) => {
     Axios.post('http://localhost:3001/read',{
       child_id: child_id,
     }).then((response) => {
-      setWishlist(response.data)
+      setWishlist(response.data);
+      setShowWishlistSection(true);
+      setShowAddWishlistSection(false);
     })
   }
 
 
-  // HTML start after return
+  // HTML start after return, each div is wrapped with conditional ternary opeartor, to toggle it on and off depending on what button is clicked
   return (
     <div className="App">
       {
         showLoginSection?
+        // HTML for Login Section
         <div className="App">
           <h1>FinMon</h1>
           <input type="text" placeholder="username" onChange={(e)=>{setUsername(e.target.value)}}></input>
@@ -59,28 +89,63 @@ function App() {
         </div>
         :
         null
-      };
+      }
       {
         showWishlistSection?
+        // HTML for Wishlist Section
         <div className="App">
           <h1>Hello {loginStatus}</h1>
           <h3>Your Wishlist</h3>
           <button onClick={showWishlist}>Display Wishlist</button>
-          <p>
-            {wishlist.map((value,key) => {
+          <div>
+            <table>
+              <tr>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Item Name</th>
+                <th>Item Price</th>
+                <th>Your Progress</th>
+              </tr>
+              {wishlist.map((value,key) => {
               return (
-                <table>
-                  <tr>
-                    <td>{value.type}</td>
-                    <td>{value.category}</td>
-                    <td>{value.price}</td>
-                    <td>{value.goal}</td>
-                  </tr>
-                </table>  
-                )
-              })}
-          </p>
+              <tr>
+                  <td>{value.type}</td>
+                  <td>{value.category}</td>
+                  <td>{value.item_name}</td>
+                  <td>S$ {value.price}</td>
+                  <td>{((value.goal / value.price) * 100).toFixed(2)}% progress</td>
+              </tr>  
+              )
+            })}
+            </table>
+          </div>
+          <br/>
+          <button onClick={showAddWishlist}>Add Wishlist</button>
 
+        </div>
+        :
+        null
+      }
+      {
+        showAddWishlistSection?
+        // HTML for Add Wishlist Section
+        <div className="App">
+          <button onClick={showWishlist}>Back</button>
+          <h3>Add Wishlist</h3>
+          <select type="text" name="type" onChange={(e)=>{setType(e.target.value)}}>
+            <option value="">What is your wishlist type ?</option>
+            <option value="need">need</option>
+            <option value="want">want</option>
+          </select>
+          <select type="text" name="category" onChange={(e)=>{setCategory(e.target.value)}}>
+            <option value="">What is your category type ?</option>
+            <option value="toys">toys</option>
+            <option value="foods">foods</option>
+            <option value="books">books</option>
+          </select>
+          <input type="text" placeholder="item name" onChange={(e)=>{setItem_Name(e.target.value)}}></input>
+          <input type="number" placeholder="price" onChange={(e)=>{setPrice(e.target.value)}}></input>
+          <button onClick={addWishlist}>Add Wishlist</button>
         </div>
         :
         null

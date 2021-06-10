@@ -35,11 +35,25 @@ app.post('/read', (req,res)=>{
     db.query("SELECT * FROM wishlist WHERE child_id = ?", 
     child_id,
     (err,result)=>{
-            err ? console.log(err) : console.log("success"); res.send(result)
-        }
-    )
+        err ? console.log(err) : console.log("success"); res.send(result)
+    })
 })
 
+// middleware to post new wishlist to myql
+app.post("/create",(req,res)=>{
+    const child_id = req.body.child_id;
+    const type = req.body.type;
+    const category = req.body.category;
+    const item_name = req.body.item_name;
+    const price = req.body.price;
+    const goal = req.body.goal;
+
+    db.query("INSERT INTO wishlist (child_id,type,category,item_name,price,goal) VALUES (?,?,?,?,?,?)", 
+    [child_id,type,category,item_name,price,goal], 
+    (err,result) =>{
+        err ? console.log(err) : res.send(result);
+    })
+})
 
 
 

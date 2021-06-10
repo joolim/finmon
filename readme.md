@@ -1,9 +1,16 @@
+version 0.6
+- add create function (C part of the CRUD)
+- add table to display wishlist (so more organized)
+
+version 0.5a
+- update instruction 
+- add .gitignore to discourage push / pull of node module
+
 version 0.5 ??
 - add login page
 - Read the wishlist info (R part of the CRUD)
 
-version 0.5a
-- update instruction 
+
 
 How to use:
 1. fork or download as zip this github repository

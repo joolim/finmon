@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-input {
+input, select {
   width: 300px;
   height: 20px;
   font-size: 15px;
@@ -14,9 +14,20 @@ input {
 }
 
 button {
-  width: 100px;
+  width: 200px;
   height: 30px;
   background-color: red;
   color: black;
 }
+
+table, th, td{
+  border: 1px solid black;
+}
+
+table {
+  margin-top: 20px;
+  width: 800px;
+  border-collapse: collapse;
+}
+
 
