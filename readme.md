@@ -4,7 +4,7 @@ version 0.6
 - add new column on wishlist table (i.e. item name) as a point of reference for update function
 - add extra 20 rows of data on wishlist function
 
-version 0.5a
+version 0.51
 - update instruction 
 - add .gitignore to discourage push / pull of node module
 
