@@ -24,8 +24,9 @@ function App() {
   // Hook for Login Section
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
   const [loginStatus, setLoginStatus] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [displayBalance, setDisplayBalance] = useState("");
 
   // Hook for multipupose
   const [wishlist, setWishlist] = useState([]);
@@ -48,10 +49,18 @@ function App() {
       } else {
         setShowLoginSection(false);
         setShowWishlistSection(true);
-        setLoginStatus(response.data[0].child_name);
-        setChild_id(response.data[0].id)
+        setDisplayName(response.data[0].child_name);
+        setChild_id(response.data[0].id);
+        setDisplayBalance((response.data[0].balance));
       };
     })
+  }
+
+  // logout
+  const logout = () => {
+    setShowWishlistSection(false);
+    setShowLoginSection(true);
+
   }
 
   // create
@@ -102,6 +111,11 @@ function App() {
     })
   }
 
+  // delete
+  const deleteWishlist = (id) => {
+    Axios.delete(`http://localhost:3001/delete/${id}`)
+  }
+
 
   // HTML start after return, each div is wrapped with conditional ternary opeartor, to toggle it on and off depending on what button is clicked
   return (
@@ -124,7 +138,8 @@ function App() {
         showWishlistSection?
         // HTML for Wishlist Section
         <div className="App">
-          <h1>Hello {loginStatus}</h1>
+          <h1>Hello {displayName}</h1>
+          <h3>Your Balance: S$ {(displayBalance).toFixed(2)}</h3>
           <h3>Your Wishlist</h3>
           <button onClick={showWishlist}>Display Wishlist</button>
           <div>
@@ -145,7 +160,7 @@ function App() {
                   <td>{value.item_name}</td>
                   <td>S$ {(value.price).toFixed(2)}</td>
                   <td>{((value.goal / value.price) * 100).toFixed(2)}% progress</td>
-                  <td><button>Delete</button></td>
+                  <td><button onClick={()=>{deleteWishlist(value.id)}}>Delete</button></td>
               </tr>  
               )
               })}
@@ -155,6 +170,8 @@ function App() {
           <button onClick={showAddWishlist}>Add Wishlist</button>
           <br/>
           <button onClick={showUpdateWishlist}>Update Wishlist</button>
+          <br/>
+          <button onClick={logout}>Logout</button>
 
         </div>
         :

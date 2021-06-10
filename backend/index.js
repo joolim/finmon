@@ -70,6 +70,16 @@ app.put("/update",(req,res)=>{
     })
 })
 
+// middleware to delete wishlist from mysql
+app.delete("/delete/:id",(req,res)=>{
+    const id = req.params.id
+
+    const deleteSQL = "DELETE FROM wishlist WHERE id = ?";
+    db.query(deleteSQL, id, 
+    (err,result) => {
+        err ? console.log(err) : console.log("delete completed");
+    })
+})
 
 
 
