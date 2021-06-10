@@ -1,3 +1,7 @@
+version 0.62
+- Moved image to SRC>App.js and removed from public>Index.html
+- Replaced IMG1
+
 version 0.61
 - Removed/ cleaned template files that came with the react app (JPG, icons, comments etc)
 - Added additional CSS file (For background, Style.css) and background (IMG1)
