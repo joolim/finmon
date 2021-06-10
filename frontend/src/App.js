@@ -3,6 +3,8 @@ import './App.css';
 import Axios from 'axios';
 
 function App() {
+  //Background image
+  document.body.style.background = "#f3f3f3 url('IMG1.png') center "
 
   // Hook (something like a set of variable and function to change the variable)
 
@@ -47,7 +49,6 @@ function App() {
       };
     })
   }
-
 
   // create
   const showAddWishlist = () => {
@@ -204,3 +205,14 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
