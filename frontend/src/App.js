@@ -8,6 +8,13 @@ function App() {
 
   // Hook (something like a set of variable and function to change the variable)
 
+  // Hook for Login Section
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginStatus, setLoginStatus] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [displayBalance, setDisplayBalance] = useState("");
+  
   // Hook for Create Section (a.k.a Add Wishlist)
   const [type, setType] = useState("");
   const [category, setCategory] = useState("");
@@ -21,12 +28,6 @@ function App() {
   const [newItem_name, setNewItem_Name] = useState("");
   const [newPrice, setNewPrice] = useState(""); 
 
-  // Hook for Login Section
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [loginStatus, setLoginStatus] = useState("");
-  const [displayName, setDisplayName] = useState("");
-  const [displayBalance, setDisplayBalance] = useState("");
 
   // Hook for multipupose
   const [wishlist, setWishlist] = useState([]);
@@ -139,7 +140,7 @@ function App() {
         // HTML for Wishlist Section
         <div className="App">
           <h1>Hello {displayName}</h1>
-          <h3>Your Balance: S$ {(displayBalance).toFixed(2)}</h3>
+          <h3>Your Balance: S$ {(displayBalance)}</h3>
           <h3>Your Wishlist</h3>
           <button onClick={showWishlist}>Display Wishlist</button>
           <div>

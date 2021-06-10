@@ -1,4 +1,8 @@
 version 0.80
+- Fix bug that prevent login even when username is correct
+
+
+version 0.80
 - Add delete function (D part of the CRUD) - phew finally
 - Display balance when user Login
 - Add logout button
