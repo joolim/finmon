@@ -85,6 +85,8 @@ function App() {
           <input type="text" placeholder="username" onChange={(e)=>{setUsername(e.target.value)}}></input>
           <input type="password" placeholder="password" onChange={(e)=>{setPassword(e.target.value)}}></input>
           <button onClick={login}>login</button>
+          <div>&nbsp;</div>
+          <button onClick={fakebutton}>Register</button>
           <p>{loginStatus}</p>
         </div>
         :
@@ -157,8 +159,9 @@ function App() {
 
 export default App;
 
-
-
+// Fake buttons
+const fakebutton = () =>{
+}
 
 
 
