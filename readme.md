@@ -1,7 +1,8 @@
 version 0.70
 - Add update function (U part of the CRUD)
-- Streamline the index.html to remove unncessary <br>
+- Streamline the index.html to remove unncessary 
 - Put some opacity to IMG1
+- Delete button on wishlist table - road to Delete function
 
 version 0.62
 - Moved image to SRC>App.js and removed from public>Index.html

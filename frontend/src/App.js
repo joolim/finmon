@@ -143,7 +143,7 @@ function App() {
                   <td>{value.type}</td>
                   <td>{value.category}</td>
                   <td>{value.item_name}</td>
-                  <td>S$ {value.price}</td>
+                  <td>S$ {(value.price).toFixed(2)}</td>
                   <td>{((value.goal / value.price) * 100).toFixed(2)}% progress</td>
                   <td><button>Delete</button></td>
               </tr>  
