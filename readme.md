@@ -1,3 +1,8 @@
+version 0.80
+- Add delete function (D part of the CRUD) - phew finally
+- Display balance when user Login
+- Add logout button
+
 version 0.70
 - Add update function (U part of the CRUD)
 - Streamline the index.html to remove unncessary 
