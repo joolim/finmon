@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 version 0.70
 - Add update function (U part of the CRUD)
 - Streamline the index.html to remove unncessary <br>
 - Put some opacity to IMG1
-
-=======
-version 0.621
-- Added fake button to login page
->>>>>>> 6be04792a491cc45738a2919d09f76816cdd60c9
 
 version 0.62
 - Moved image to SRC>App.js and removed from public>Index.html
