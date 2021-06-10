@@ -55,6 +55,21 @@ app.post("/create",(req,res)=>{
     })
 })
 
+// middleware to update wishlist to myql
+app.put("/update",(req,res)=>{
+    const id = req.body.id;
+    const type = req.body.type;
+    const category = req.body.category;
+    const item_name = req.body.item_name;
+    const price = req.body.price;
+
+    db.query("UPDATE wishlist SET type = ?, category = ?, item_name = ?, price = ? WHERE id = ?",
+    [type,category,item_name,price,id],
+    (err,result) => {
+        err ? console.log(err) : console.log("update completed"); res.send(result);
+    })
+})
+
 
 
 
