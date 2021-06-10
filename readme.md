@@ -1,3 +1,11 @@
+version 0.61
+- Removed/ cleaned template files that came with the react app (JPG, icons, comments etc)
+- Added additional CSS file (For background, Style.css) and background (IMG1)
+- Added background for table to overlay (IMG2)
+- Edited App.js to remove text "Finmon" to better fit into IMG1 background
+- Aligned background with login function
+- Changed style of buttons by editing App.css file with button (NOT Perfect yet, as "Sign up" on the background is a diff style and colour)
+
 version 0.6
 - add create function (C part of the CRUD)
 - add table to display wishlist (so more organized)
