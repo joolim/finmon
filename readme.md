@@ -1,6 +1,8 @@
 version 0.6
 - add create function (C part of the CRUD)
 - add table to display wishlist (so more organized)
+- add new column on wishlist table (i.e. item name) as a point of reference for update function
+- add extra 20 rows of data on wishlist function
 
 version 0.5a
 - update instruction 
