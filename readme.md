@@ -1,4 +1,7 @@
-version 0.80
+version 0.810
+- Show message once wishlist is created, updated or deleted and when OK button pressed it will return to main wishlist menu
+
+version 0.801
 - Fix bug that prevent login even when username is correct
 
 
