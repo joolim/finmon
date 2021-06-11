@@ -1,3 +1,6 @@
+version 0.82
+- Made buttons consistent size throughout
+
 version 0.81
 - Improved looks of table and buttons
 

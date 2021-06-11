@@ -21,10 +21,11 @@ Button {
 	cursor:pointer;
 	color:#000000;
 	font-family:Arial;
-	font-size:18px;
-	padding:10px 25px;
+	font-size:15px;
+	padding:10px 10px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #283966;
+  width: 160px
 }
 
 
