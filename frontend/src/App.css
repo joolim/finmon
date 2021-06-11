@@ -14,28 +14,32 @@ input, select {
 }
 
 Button {
-	background-color:#7892c2;
+	background-color:#0fa53c;
 	border-radius:28px;
-	border:1px solid #4e6096;
+	border:2px solid #000000;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
+	color:#000000;
 	font-family:Arial;
-	font-size:17px;
-	padding:10px 45px;
+	font-size:18px;
+	padding:10px 25px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #283966;
 }
 
 
-table, th, td{
-  border: 1px solid black;
-}
+
 
 table {
   margin-top: 20px;
   width: 800px;
   border-collapse: collapse;
+  background: #5562d8;
+  font-size:18px;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+th, td{
+  border: 2px solid black;
 }
 
 /* Ben Code */
