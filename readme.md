@@ -1,3 +1,6 @@
+version 0.811
+- Change backend coding structure to follow what use in class (i.e. using router instead of app)
+
 version 0.810
 - Show message once wishlist is created, updated or deleted and when OK button pressed it will return to main wishlist menu
 
