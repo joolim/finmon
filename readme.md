@@ -1,3 +1,6 @@
+version 0.812
+- Add status (i.e. 200/500) on the backend CRUD
+
 version 0.811
 - Change backend coding structure to follow what use in class (i.e. using router instead of app)
 

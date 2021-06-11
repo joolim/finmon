@@ -12,7 +12,13 @@ const backend_wishlistRead = (req,res) => {
     db.query("SELECT * FROM wishlist WHERE child_id = ?", 
     child_id,
     (err,result)=>{
-        err ? console.log(err) : console.log("success"); res.send(result)
+        if(err) {
+            console.log(err);
+            res.status(500).send("Internal Server Error") 
+        } else {
+            console.log("success"); 
+            res.status(200).send(result);
+        } 
     })
 }
  // backend for Write
@@ -27,7 +33,12 @@ const backend_wishlistCreate = (req,res) => {
     db.query("INSERT INTO wishlist (child_id,type,category,item_name,price,goal) VALUES (?,?,?,?,?,?)", 
     [child_id,type,category,item_name,price,goal], 
     (err,result) =>{
-        err ? console.log(err) : res.send(result);
+        if(err) {
+            console.log(err);
+            res.status(500).send("Internal Server Error");
+        } else {
+            res.status(200).send("wishlist added"); 
+        };
     })
 }
 
@@ -42,7 +53,13 @@ const backend_wishlistUpdate = (req,res) => {
     db.query("UPDATE wishlist SET type = ?, category = ?, item_name = ?, price = ? WHERE id = ?",
     [type,category,item_name,price,id],
     (err,result) => {
-        err ? console.log(err) : console.log("update completed"); res.send(result);
+        if(err) {
+            console.log(err);
+            res.status(500).send("Internal Server Error");
+        } else {
+            console.log("wishlist updated"); 
+            res.status(200).send(result); 
+        };
     })
 }
 
@@ -52,7 +69,12 @@ const backend_wishlistDelete = (req,res) => {
 
     db.query("DELETE FROM wishlist WHERE id = ?", id, 
     (err,result) => {
-        err ? console.log(err) : console.log("delete completed");
+        if(err) {
+            console.log(err);
+            res.status(500).send("Internal Server Error");
+        } else {
+            console.log("wishlist deleted"); 
+        };
     })
 }
 
