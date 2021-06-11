@@ -9,7 +9,7 @@ const db = database.callDatabase
 const backend_wishlistRead = (req,res) => {
     const child_id = req.body.child_id
 
-    db.query("SELECT * FROM wishlist WHERE child_id = ?", 
+    db.query("SELECT * FROM wishlist WHERE child_id = ? ORDER BY (goal/price) DESC", 
     child_id,
     (err,result)=>{
         if(err) {
@@ -78,9 +78,9 @@ const backend_wishlistDelete = (req,res) => {
     })
 }
 
-router.post('/read', backend_wishlistRead);
-router.post('/create', backend_wishlistCreate);
-router.put('/update',backend_wishlistUpdate);
-router.delete('/delete/:id',backend_wishlistDelete);
+router.post('/wishlist/read', backend_wishlistRead);
+router.post('/wishlist/create', backend_wishlistCreate);
+router.put('/wishlist/update',backend_wishlistUpdate);
+router.delete('/wishlist/delete/:id',backend_wishlistDelete);
 
 module.exports = {router}

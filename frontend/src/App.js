@@ -45,7 +45,7 @@ function App() {
 
   // login 
   const login = () => {
-    Axios.post('http://localhost:3001/login',{
+    Axios.post('http://localhost:3001/child/login',{
       username: username, 
       password: password,
     }).then((response)=>{
@@ -76,21 +76,21 @@ function App() {
   }
 
   const addWishlist = () => {
-    Axios.post("http://localhost:3001/create",{
+    Axios.post("http://localhost:3001/wishlist/create",{
       child_id: child_id,
       type: type,
       category: category,
       item_name: item_name,
       price: price,
-      goal: 0,
+      goal: Math.random() * 151,
     }).then(()=>{
       setCreateMessage(true);
     })
   }
 
   // read
-  const showWishlist = (id) => {
-    Axios.post('http://localhost:3001/read',{
+  const showWishlist = () => {
+    Axios.post('http://localhost:3001/wishlist/read',{
       child_id: child_id,
     }).then((response) => {
       setWishlist(response.data);
@@ -108,7 +108,7 @@ function App() {
   }
 
   const updateWishlist = () => {
-    Axios.put("http://localhost:3001/update", {
+    Axios.put("http://localhost:3001/wishlist/update", {
       id: itemUpdated,
       type: newType,
       category: newCategory,
@@ -123,7 +123,7 @@ function App() {
 
   // delete
   const deleteWishlist = (id) => {
-    Axios.delete(`http://localhost:3001/delete/${id}`)
+    Axios.delete(`http://localhost:3001/wishlist/delete/${id}`)
     setShowWishlistSection(false);
     setDeleteMessage(true);
 

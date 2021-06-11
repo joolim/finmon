@@ -1,3 +1,7 @@
+version 0.813
+- Sort wishlist item by progress as requested by Cynthia
+- A secret feature requested by Charlie
+
 version 0.812
 - Add status (i.e. 200/500) on the backend CRUD
 

@@ -26,6 +26,6 @@ const backend_login = (req,res) => {
     })
 };
 
-router.post('/login', backend_login);
+router.post('/child/login', backend_login);
 
 module.exports = {router}
