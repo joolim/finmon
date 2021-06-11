@@ -1,3 +1,6 @@
+version 0.81
+- Improved looks of table and buttons
+
 version 0.80
 - Add delete function (D part of the CRUD) - phew finally
 - Display balance when user Login
@@ -51,5 +54,3 @@ How to use:
 11. type npm start
 12. a new tab will be opened on your browser window
 13. use any username and password combination to login
-
-test
