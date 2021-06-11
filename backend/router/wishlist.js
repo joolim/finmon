@@ -50,8 +50,7 @@ const backend_wishlistUpdate = (req,res) => {
 const backend_wishlistDelete = (req,res) => {
     const id = req.params.id
 
-    const deleteSQL = "DELETE FROM wishlist WHERE id = ?";
-    db.query(deleteSQL, id, 
+    db.query("DELETE FROM wishlist WHERE id = ?", id, 
     (err,result) => {
         err ? console.log(err) : console.log("delete completed");
     })
