@@ -1,3 +1,7 @@
+version 0.83
+- centered content in table
+- alternate columnn on wishlist displayed in white text
+
 version 0.82
 - Made buttons consistent size throughout
 
