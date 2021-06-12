@@ -39,6 +39,24 @@ Button {
   width: 160px
 }
 
+Button2 {
+	background-color:#ce2020;
+	border-radius:28px;
+	border:2px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:20px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+  width: 160px;
+  text-align: center;
+  border-radius: 50%
+}
+
+
 table {
   margin-top: 20px;
   width: 650px;

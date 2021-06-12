@@ -1,3 +1,7 @@
+version 0.84
+-Added dummy buttons
+-Changed UI and background
+
 version 0.83
 - centered content in table
 - alternate columnn on wishlist displayed in white text

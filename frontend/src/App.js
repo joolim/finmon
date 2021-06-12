@@ -4,7 +4,7 @@ import Axios from 'axios';
 
 function App() {
   //Background image
-  document.body.style.background = "#f3f3f3 url('IMG1.png') center "
+  document.body.style.background = "url('IMG1.png') center"
 
   // Hook (something like a set of variable and function to change the variable)
 
@@ -129,7 +129,7 @@ function App() {
 
   }
 
-
+  
   // HTML start after return, each div is wrapped with conditional ternary opeartor, to toggle it on and off depending on what button is clicked
   return (
     <div className="App">
@@ -137,8 +137,11 @@ function App() {
         showLoginSection?
         // HTML for Login Section
         <div className="App">
+          <img src="IMG2.png" alt="Test" width="600" height="500"></img>
+          <div>&nbsp;</div>
           <input type="text" placeholder="username" onChange={(e)=>{setUsername(e.target.value)}}></input>
           <input type="password" placeholder="password" onChange={(e)=>{setPassword(e.target.value)}}></input>
+          <div>&nbsp;</div>
           <button onClick={login}>login</button>
           <div>&nbsp;</div>
           <button onClick={fakebutton}>Register</button>
@@ -153,10 +156,18 @@ function App() {
         <button onClick={()=> {setDeleteMessage(false); showWishlist()}}>Ok</button>
       </div>
       : null}
+
       {
+        
         showWishlistSection?
         // HTML for Wishlist Section
         <div className="App">
+          <div>
+          <button2 onClick={fakebutton2}>Transactions</button2> &nbsp; &nbsp;
+          <button2 onClick={fakebutton2}>Rewards</button2> &nbsp; &nbsp;
+          <button2 onClick={fakebutton2}>Game</button2>
+          </div>
+          <div>&nbsp;</div>
           <div className="Profile">
             <h1>Hello {displayName}</h1>
             <h3>Your Balance: S$ {(displayBalance)}</h3>
@@ -281,7 +292,8 @@ export default App;
 // Fake buttons
 const fakebutton = () =>{
 }
-
+const fakebutton2 = () =>{
+}
 
 
 
