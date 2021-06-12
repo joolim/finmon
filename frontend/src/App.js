@@ -23,7 +23,7 @@ function App() {
   const [createMessage, setCreateMessage] = useState(false)
 
   // Hook for Update Section
-  const [itemUpdated, setItemUpdated] = useState("initialState")
+  const [itemUpdated, setItemUpdated] = useState("")
   const [newType, setNewType] = useState("");
   const [newCategory, setNewCategory] = useState("");
   const [newItem_name, setNewItem_Name] = useState("");
@@ -82,7 +82,7 @@ function App() {
       category: category,
       item_name: item_name,
       price: price,
-      goal: Math.random() * 151,
+      goal: Math.random() * 151, // for demo purpose, we randomize this number
     }).then(()=>{
       setCreateMessage(true);
     })
@@ -157,11 +157,14 @@ function App() {
         showWishlistSection?
         // HTML for Wishlist Section
         <div className="App">
-          <h1>Hello {displayName}</h1>
-          <h3>Your Balance: S$ {(displayBalance)}</h3>
-          <h3>Your Wishlist</h3>
-          <button onClick={showWishlist}>Display Wishlist</button>
+          <div className="Profile">
+            <h1>Hello {displayName}</h1>
+            <h3>Your Balance: S$ {(displayBalance)}</h3>
+
+            <button onClick={showWishlist}>Display Wishlist</button>
+          </div>
           <div>
+            <h3>Your Wishlist</h3>
             <table>
               <tr>
                 <th>Type</th>
