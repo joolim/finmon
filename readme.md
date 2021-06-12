@@ -1,3 +1,6 @@
+version 0.85
+- Login message punctuation minor amendment
+
 version 0.84
 - Added dummy buttons
 - Changed UI and background
