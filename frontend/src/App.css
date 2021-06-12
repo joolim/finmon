@@ -14,12 +14,12 @@ input, select {
 }
 
 Button {
-	background-color:#0fa53c;
+	background-color:#237841;
 	border-radius:28px;
 	border:2px solid #000000;
 	display:inline-block;
 	cursor:pointer;
-	color:#000000;
+	color:#ffffff;
 	font-family:Arial;
 	font-size:15px;
 	padding:10px 10px;
@@ -28,19 +28,25 @@ Button {
   width: 160px
 }
 
-
-
-
 table {
   margin-top: 20px;
-  width: 800px;
+  width: 650px;
   border-collapse: collapse;
-  background: #5562d8;
-  font-size:18px;
+  background: #0055BF;
+  font-size:15px;
+  color: #ffffff;
+  text-align: center;
 }
-tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+  color: #000000;
+}
+
 th, td{
   border: 2px solid black;
+}
+th {
+  color: #ffffff;
 }
 
 /* Ben Code */
