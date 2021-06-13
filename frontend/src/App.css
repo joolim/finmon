@@ -39,6 +39,13 @@ Button {
   width: 160px
 }
 
+Button:hover {
+	transition: 0.3s;
+	background-color: #fd071b;
+	color: #F69680;
+	text-decoration: underline;
+}
+
 Button2 {
 	background-color:#ce2020;
 	border-radius:28px;
