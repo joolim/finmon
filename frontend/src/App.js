@@ -163,9 +163,9 @@ function App() {
         // HTML for Wishlist Section
         <div className="App">
           <div>
-          <button2 onClick={fakebutton2}>Transactions</button2> &nbsp; &nbsp;
-          <button2 onClick={fakebutton2}>Rewards</button2> &nbsp; &nbsp;
-          <button2 onClick={fakebutton2}>Game</button2>
+          <button className="button2" onClick={fakebutton2}>Transactions</button> &nbsp; &nbsp;
+          <button className="button2" onClick={fakebutton2}>Rewards</button> &nbsp; &nbsp;
+          <button className="button2"onClick={fakebutton2}>Game</button>
           </div>
           <div>&nbsp;</div>
           <div className="Profile">
@@ -177,26 +177,31 @@ function App() {
           <div>
             <h3>Your Wishlist</h3>
             <table>
-              <tr>
-                <th>Type</th>
-                <th>Category</th>
-                <th>Item Name</th>
-                <th>Item Price</th>
-                <th>Your Progress</th>
-                <th>Delete</th>
-              </tr>
-              {wishlist.map((value,key) => {
-              return (
-              <tr>
-                  <td>{value.type}</td>
-                  <td>{value.category}</td>
-                  <td>{value.item_name}</td>
-                  <td>S$ {(value.price).toFixed(2)}</td>
-                  <td>{((value.goal / value.price) * 100).toFixed(2)}% progress</td>
-                  <td><button onClick={()=>{deleteWishlist(value.id)}}>Delete</button></td>
-              </tr>  
-              )
-              })}
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Category</th>
+                  <th>Item Name</th>
+                  <th>Item Price</th>
+                  <th>Your Progress</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                {wishlist.map((value,key) => {
+                return (
+                <tr key={value.id}>
+                    <td>{value.type}</td>
+                    <td>{value.category}</td>
+                    <td>{value.item_name}</td>
+                    <td>S$ {(value.price).toFixed(2)}</td>
+                    <td>{((value.goal / value.price) * 100).toFixed(2)}% progress</td>
+                    <td><button onClick={()=>{deleteWishlist(value.id)}}>Delete</button></td>
+                </tr>  
+                )
+                })}
+              </tbody>
+
             </table>
           </div>
           <br/>

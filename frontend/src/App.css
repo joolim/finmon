@@ -36,7 +36,7 @@ Button {
 	padding:10px 10px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #283966;
-  width: 160px
+  width: 200px
 }
 
 Button:hover {
@@ -46,7 +46,7 @@ Button:hover {
 	text-decoration: underline;
 }
 
-Button2 {
+.button2 {
 	background-color:#ce2020;
 	border-radius:28px;
 	border:2px solid #000000;
@@ -167,13 +167,14 @@ label {
 }
 
 input[type='text'],
-input[type='number'] {
+input[type='number'],
+input[type='password'] {
   border: 1px solid #dedede;
   border-radius: 2px;
   display: block;
   font-size: 16px;
   padding: 10px;
-  width: 100%;
+  width: 300px;
 }
 
 .btn {

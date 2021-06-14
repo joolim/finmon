@@ -1,3 +1,6 @@
+version 0.861
+- minor bug fix that cause error on console.
+
 version 0.86
 - buttons hover effect added 
 
