@@ -1,3 +1,6 @@
+version 0.862
+- minor fix adding res.status for DELETE function
+
 version 0.861
 - minor bug fix that cause error on console.
 

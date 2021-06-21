@@ -73,7 +73,8 @@ const backend_wishlistDelete = (req,res) => {
             console.log(err);
             res.status(500).send("Internal Server Error");
         } else {
-            console.log("wishlist deleted"); 
+            console.log("wishlist deleted");
+            res.status(200).send(result); 
         };
     })
 }
